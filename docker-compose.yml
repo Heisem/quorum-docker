@@ -1,0 +1,23 @@
+version: "3.1"
+services:
+  quorum:
+    container_name: quorum
+    build:
+      context: ./
+    ports:
+      - "9000:80"
+      - "22000:22000"
+      - "22001:22001"
+      - "22002:22002"
+      - "22003:22003"
+      - "22004:22004"
+      - "22005:22005"
+      - "22006:22006"
+    volumes:
+      - /mnt/logs/quorum:/logs
+      - /mnt/logs/qdata:/home/examples/7nodes/qdata/logs
+    networks:
+      - blockchain
+networks:
+  blockchain:
+    driver: bridge
